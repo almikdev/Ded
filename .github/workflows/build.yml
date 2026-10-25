@@ -12,12 +12,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - name: Android32
+          - name: Android
             os: ubuntu-latest
-            target: Android32
-          - name: Android64
-            os: ubuntu-latest
-            target: Android64
+            target: Android
 
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
@@ -28,5 +25,4 @@ jobs:
       - name: Build Mod
         uses: geode-sdk/build-geode-mod@main
         with:
-          combine: true
           target: ${{ matrix.config.target }}
