@@ -30,4 +30,3 @@ jobs:
         with:
           combine: true
           target: ${{ matrix.config.target }}
-          cli: true
