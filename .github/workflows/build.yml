@@ -12,12 +12,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - name: Android32
+          - name: Android
             os: ubuntu-latest
-            target: Android32
-          - name: Android64
-            os: ubuntu-latest
-            target: Android64
+            target: Android
 
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
@@ -25,19 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Rust (for Geode CLI)
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Install Geode CLI
-        run: |
-          cargo install geode-cli --locked
-          geode profile add default
-          geode sdk install
-
       - name: Build Mod
         uses: geode-sdk/build-geode-mod@main
-        env:
-          GEODE_SDK: ${{ github.workspace }}/.geode-sdk
         with:
-          combine: true
           target: ${{ matrix.config.target }}
