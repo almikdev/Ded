@@ -1,0 +1,10 @@
+/{
+    "geode": "4.0.0",
+    "version": "1.0.0",
+    "id": "my.framecounter",
+    "name": "Mobile Frame Counter",
+    "developer": "Player",
+    "description": "Простой счетчик фрейм виндоу для Android",
+    "dependencies": []
+}
+
