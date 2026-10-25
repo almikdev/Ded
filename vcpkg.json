@@ -1,0 +1,10 @@
+{
+  "name": "mobile-frame-counter",
+  "version": "1.0.0",
+  "dependencies": [
+    {
+      "name": "geode",
+      "version-string": "4.0.0"
+    }
+  ]
+}
