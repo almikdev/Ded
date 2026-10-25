@@ -1,5 +1,5 @@
 {
-    "geode": "4.0.0",
+    "geode": "3.0.0",
     "version": "1.0.0",
     "id": "my.framecounter",
     "name": "Mobile Frame Counter",
