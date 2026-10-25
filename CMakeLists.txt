@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 3.24)
 
-# Автоматически подключаем окружение Geode, если оно установлено в системе
-if(DEFINED ENV{GEODE_SDK})
-    list(APPEND CMAKE_PREFIX_PATH "$ENV{GEODE_SDK}")
+project(MobileFrameCounter)
+
+# Принудительно подключаем Geode SDK через системные переменные GitHub Actions
+if(NOT DEFINED GEODE_SDK AND DEFINED ENV{GEODE_SDK})
+    set(GEODE_SDK "$ENV{GEODE_SDK}" CACHE PATH "Path to Geode SDK")
 endif()
 
-project(MobileFrameCounter)
+list(APPEND CMAKE_PREFIX_PATH "${GEODE_SDK}")
 
 find_package(Geode REQUIRED)
 
