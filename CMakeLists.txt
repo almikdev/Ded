@@ -2,15 +2,9 @@ cmake_minimum_required(VERSION 3.24)
 
 project(MobileFrameCounter)
 
-# Принудительно подключаем Geode SDK через системные переменные GitHub Actions
-if(NOT DEFINED GEODE_SDK AND DEFINED ENV{GEODE_SDK})
-    set(GEODE_SDK "$ENV{GEODE_SDK}" CACHE PATH "Path to Geode SDK")
-endif()
+include(FetchContent)
 
-list(APPEND CMAKE_PREFIX_PATH "${GEODE_SDK}")
-
-find_package(Geode REQUIRED)
-
+# Позволяем Geode CLI автоматически управлять сборкой без find_package
 add_geode_mod(
     my.framecounter
     VERSION 1.0.0
