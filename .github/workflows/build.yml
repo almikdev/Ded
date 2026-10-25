@@ -30,3 +30,4 @@ jobs:
         with:
           combine: true
           target: ${{ matrix.config.target }}
+          vcpkg: true
